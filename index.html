@@ -31,7 +31,7 @@
                 }
                 const result = await response.json();
                 appendElements(plotData(result));
-                checkResult.append("Check Successful");
+                checkResult.textContent("Check Successful");
             } catch (err) {
                 console.error(err);
                 checkResult.textContent =
