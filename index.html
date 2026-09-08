@@ -21,7 +21,6 @@
 
         async function checkServerFunction() {
             checkResult.textContent = "Loading...";
-
             try {
                 const response = await fetch(
                     "https://api.mcstatus.io/v2/status/java/ramp-letters.tun.ply.gg"
@@ -31,11 +30,10 @@
                 }
                 const result = await response.json();
                 appendElements(plotData(result));
-                checkResult.textContent("Check Successful");
+                checkResult.textContent = "Check Successful";
             } catch (err) {
                 console.error(err);
-                checkResult.textContent =
-                    "Error Checking Server, Cannot Connect to checker Service";
+                checkResult.textContent = "Error Checking Server, Cannot Connect to checker Service";
             }
         }
 
