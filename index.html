@@ -29,9 +29,9 @@
                     throw new Error(`HTTP ${response.status}`);
                 }
                 const result = await response.json();
-                console.log(result);
-                appendElements(plotData(result));
+                /*console.log(result); */
                 checkResult.textContent = "Check Successful";
+                appendElements(plotData(result));
             } catch (err) {
                 console.error(err);
                 checkResult.textContent = "Error Checking Server, Cannot Connect to checker Service";
