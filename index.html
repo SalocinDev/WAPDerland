@@ -29,6 +29,7 @@
                     throw new Error(`HTTP ${response.status}`);
                 }
                 const result = await response.json();
+                console.log(result);
                 appendElements(plotData(result));
                 checkResult.textContent = "Check Successful";
             } catch (err) {
