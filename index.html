@@ -20,14 +20,13 @@
         document.getElementById("checkServerButton").addEventListener("click", checkServerFunction);
 
         async function checkServerFunction(){
+            checkResult.textContent = "Loading..."
             var data = await fetch("https://api.mcstatus.io/v2/status/java/ramp-letters.tun.ply.gg");
             var result;
             try {
                 result = await data.json();
             } catch (err){
                 result = {success: false, error: err};
-            }
-            if (!result.status){
                 checkResult.textContent = "Error Checking Server, Cannot Connect to checker Service"
             }
             appendElements(plotData(result));
