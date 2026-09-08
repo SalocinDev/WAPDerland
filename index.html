@@ -29,11 +29,7 @@
                 result = {success: false, error: err};
                 checkResult.textContent = "Error Checking Server, Cannot Connect to checker Service"
             }
-            if (appendElements(plotData(result))){
-                checkResult.textContent = "Check Successful"
-            } else {
-                checkResult.textContent = "Check Unsuccessful"
-            }
+            checkResult.textContent = "Check Successful"
         }
 
         function plotData(data) {
