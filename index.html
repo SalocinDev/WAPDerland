@@ -29,7 +29,11 @@
                 result = {success: false, error: err};
                 checkResult.textContent = "Error Checking Server, Cannot Connect to checker Service"
             }
-            appendElements(plotData(result));
+            if (appendElements(plotData(result))){
+                checkResult.textContent = "Check Successful"
+            } else {
+                checkResult.textContent = "Check Unsuccessful"
+            }
         }
 
         function plotData(data) {
@@ -38,6 +42,7 @@
             var playersOnline = document.createElement("p");
             var playersList = document.createElement("p");
             var serverMOTD = document.createElement("p");
+            var serverIconText = document.createElement("p");
             var serverIcon = new Image;
             
             onlineStatus.textContent = `Online: ${data.online}`; 
@@ -45,24 +50,34 @@
             playersOnline.textContent = `Players Online: ${data.players?.online ?? 0}/${data.players?.max ?? 0}`; 
             playersList.textContent = `Players: ${ data.players?.list?.map(player => player.name_clean).join(", ") || "None" }`; 
             serverMOTD.textContent = `MOTD: ${data.motd?.clean ?? "None"}`;
+            serverIconText.textContent = `Server Icon: `
+            serverIcon.src = data.icon;
 
             return { 
                 onlineStatus, 
                 minecraftVersion, 
                 playersOnline, 
                 playersList, 
+                serverMOTD,
                 serverIcon
             };
         }
 
         function appendElements(elements) {
-            checkResult.append(
+            try {
+                checkResult.append(
                 elements.onlineStatus,
                 elements.minecraftVersion,
                 elements.playersOnline,
                 elements.playersList,
+                elements.serverMOTD,
+                elements.serverIconText,
                 elements.serverIcon
             );
+            return {success: true}
+            } catch (err) {
+                return {success: false}
+            }
         }
     </script>
 </html>
