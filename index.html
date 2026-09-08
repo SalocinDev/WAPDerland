@@ -61,20 +61,15 @@
         }
 
         function appendElements(elements) {
-            try {
-                checkResult.append(
-                elements.onlineStatus,
-                elements.minecraftVersion,
-                elements.playersOnline,
-                elements.playersList,
-                elements.serverMOTD,
-                elements.serverIconText,
-                elements.serverIcon
-            );
-            return {success: true}
-            } catch (err) {
-                return {success: false}
-            }
+            checkResult.append(
+            elements.onlineStatus,
+            elements.minecraftVersion,
+            elements.playersOnline,
+            elements.playersList,
+            elements.serverMOTD,
+            elements.serverIconText,
+            elements.serverIcon
+            )
         }
     </script>
 </html>
