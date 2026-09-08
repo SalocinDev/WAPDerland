@@ -29,7 +29,8 @@
                 result = {success: false, error: err};
                 checkResult.textContent = "Error Checking Server, Cannot Connect to checker Service"
             }
-            checkResult.textContent = "Check Successful"
+            appendElements(plotData(result));
+            checkResult.textContent = "Check Successful";
         }
 
         function plotData(data) {
